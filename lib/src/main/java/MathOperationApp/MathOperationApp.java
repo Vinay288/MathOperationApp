@@ -6,8 +6,9 @@ package MathOperationApp;
 @FunctionalInterface
 interface IMathFunction {
 	int calculate(int a, int b);
-	static void printResult(int a,int b,String functionName,IMathFunction functionObj) {
-		System.out.println(functionName+" is  "+functionObj.calculate(a, b));
+
+	static void printResult(int a, int b, String functionName, IMathFunction functionObj) {
+		System.out.println(functionName + " is  " + functionObj.calculate(a, b));
 	}
 }
 
