@@ -50,23 +50,24 @@ public class NumberPlayList {
 
 		// Stream foreach to print numbers
 		myNumberList.stream().forEach(n -> System.out.println("number is :" + n));
+
+		// transform to double and store the result
+		List<Double> doubleList = myNumberList.stream().map(toDoubleFunction).collect(Collectors.toList());
+		System.out.println("obtained double list is " + doubleList);
+
+		// filter number even number from stream and storing
+		List<Integer> evenStreamList = myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
+		System.out.println("even number list is:" + evenStreamList);
+
+		// peek first even number and store it
+		Integer firstEvenNumber = myNumberList.stream().filter(isEvenFunction).findFirst().orElse(null);
+		System.out.println("first even number is :" + firstEvenNumber);
 		
-		//transform to double and store the result
-		List<Double> doubleList=myNumberList.stream()
-								.map(toDoubleFunction)
-								.collect(Collectors.toList());
-		System.out.println("obtained double list is "+doubleList);
+		Integer minEvenNumber=myNumberList.stream().filter(isEvenFunction).min(Integer::compare).orElse(null);
+		System.out.println("min even number is "+minEvenNumber);
 		
-		//filter number even number from stream and storing
-		List<Integer> evenStreamList=myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
-		System.out.println("even number list is:"+evenStreamList);
-		
-		//peek first even number and store it
-		Integer firstEvenNumber=myNumberList.stream()
-								.filter(isEvenFunction)
-								.findFirst()
-								.orElse(null);
-		System.out.println("first even number is :"+firstEvenNumber);
+		Integer maxEvenNumber = myNumberList.stream().filter(isEvenFunction).max(Integer::compare).orElse(null);
+		System.out.println("max even number is "+maxEvenNumber);
 	}
 
 }
