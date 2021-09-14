@@ -1,9 +1,11 @@
 package MathOperationApp;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class NumberPlayList {
 
@@ -48,6 +50,12 @@ public class NumberPlayList {
 
 		// Stream foreach to print numbers
 		myNumberList.stream().forEach(n -> System.out.println("number is :" + n));
+		
+		//transform to double and store the result
+		List<Double> doubleList=myNumberList.stream()
+								.map(toDoubleFunction)
+								.collect(Collectors.toList());
+		System.out.println("obtained double list is "+doubleList);
 	}
 
 }
