@@ -75,6 +75,11 @@ public class NumberPlayList {
 		System.out.println("sum is " + sum);
 		OptionalDouble average = myNumberList.stream().mapToInt(Integer::intValue).average();
 		System.out.println("average of list is " + average);
+
+		// find if all or any matches
+		boolean isAllEven = myNumberList.stream().filter(isEvenFunction).allMatch(isEvenFunction);
+		boolean isAnyEven = myNumberList.stream().filter(n -> (n > 0) && (n % 2 == 1)).anyMatch(isEvenFunction);
+		System.out.println("is all even :" + isAllEven + " is nay even " + isAnyEven);
 	}
 
 }
