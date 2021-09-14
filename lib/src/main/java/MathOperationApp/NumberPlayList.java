@@ -2,6 +2,7 @@ package MathOperationApp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -62,12 +63,18 @@ public class NumberPlayList {
 		// peek first even number and store it
 		Integer firstEvenNumber = myNumberList.stream().filter(isEvenFunction).findFirst().orElse(null);
 		System.out.println("first even number is :" + firstEvenNumber);
-		
-		Integer minEvenNumber=myNumberList.stream().filter(isEvenFunction).min(Integer::compare).orElse(null);
-		System.out.println("min even number is "+minEvenNumber);
-		
+
+		// find min and max in number stream
+		Integer minEvenNumber = myNumberList.stream().filter(isEvenFunction).min(Integer::compare).orElse(null);
+		System.out.println("min even number is " + minEvenNumber);
+
 		Integer maxEvenNumber = myNumberList.stream().filter(isEvenFunction).max(Integer::compare).orElse(null);
-		System.out.println("max even number is "+maxEvenNumber);
+		System.out.println("max even number is " + maxEvenNumber);
+
+		Integer sum = myNumberList.stream().reduce(0, Integer::sum);
+		System.out.println("sum is " + sum);
+		OptionalDouble average = myNumberList.stream().mapToInt(Integer::intValue).average();
+		System.out.println("average of list is " + average);
 	}
 
 }
