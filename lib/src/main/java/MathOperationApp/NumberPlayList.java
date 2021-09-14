@@ -6,6 +6,7 @@ import java.util.OptionalDouble;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class NumberPlayList {
@@ -80,6 +81,10 @@ public class NumberPlayList {
 		boolean isAllEven = myNumberList.stream().filter(isEvenFunction).allMatch(isEvenFunction);
 		boolean isAnyEven = myNumberList.stream().filter(n -> (n > 0) && (n % 2 == 1)).anyMatch(isEvenFunction);
 		System.out.println("is all even :" + isAllEven + " is nay even " + isAnyEven);
+
+		// sort stream in ascending order
+		List<Integer> sortedList = myNumberList.stream().sorted().collect(Collectors.toList());
+		System.out.println("list after sorting is " + sortedList);
 	}
 
 }
