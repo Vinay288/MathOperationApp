@@ -46,6 +46,8 @@ public class NumberPlayList {
 		myNumberList.forEach(n -> System.out
 				.println((isEvenFunction.test(n) == true) ? +n + " is even number" : +n + " is a odd number"));
 
+		// Stream foreach to print numbers
+		myNumberList.stream().forEach(n -> System.out.println("number is :" + n));
 	}
 
 }
