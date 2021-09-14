@@ -11,7 +11,7 @@ public class NumberPlayList {
 
 	public static void main(String[] args) {
 		ArrayList<Integer> myNumberList = new ArrayList<Integer>();
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 10; i++)
 			myNumberList.add(i);
 
 		for (int i : myNumberList)
@@ -60,6 +60,13 @@ public class NumberPlayList {
 		//filter number even number from stream and storing
 		List<Integer> evenStreamList=myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
 		System.out.println("even number list is:"+evenStreamList);
+		
+		//peek first even number and store it
+		Integer firstEvenNumber=myNumberList.stream()
+								.filter(isEvenFunction)
+								.findFirst()
+								.orElse(null);
+		System.out.println("first even number is :"+firstEvenNumber);
 	}
 
 }
