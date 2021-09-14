@@ -56,6 +56,10 @@ public class NumberPlayList {
 								.map(toDoubleFunction)
 								.collect(Collectors.toList());
 		System.out.println("obtained double list is "+doubleList);
+		
+		//filter number even number from stream and storing
+		List<Integer> evenStreamList=myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
+		System.out.println("even number list is:"+evenStreamList);
 	}
 
 }
